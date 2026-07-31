@@ -53,4 +53,4 @@ uv sync
 uv run fastapi dev
 ```
 
-Esta version se puede apagar presionando ctrl + c en
+Esta version se puede apagar mediante ctrl + c o matando el proceso en algun gestor de procesos
