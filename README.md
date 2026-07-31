@@ -9,7 +9,9 @@
 
 ## Como iniciar el backend
 
-### Usando docker
+- Para facilitar el proceso de levantar y mantener el backend hay dos maneras de utilizarlo, la mas sencilla y recomendada es levantar todo con docker compose y la otra opcion es correr los comandos a mano
+
+### Usando docker compose
 
 1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
 2. Desde la terminal se ingresara a ese directorio y se debera ejecutara el comando

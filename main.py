@@ -7,8 +7,6 @@ async def get_root():
     return {"test"}
 
 
-
-
 '''
 TODO
 
