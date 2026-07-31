@@ -1,19 +1,21 @@
 # CIICCTE-server-backend-V2
 
-## About the project
+## Sobre el proyecto
 
-- Server software designed for handling the abstraction layer between user workflows and container deployments
-- The python version and packages are managed through uv
+- Software que funge como servidor para gestionar la abstraccion entre el frontend y los workspaces personales dentro de el CIICCTE
+- Esta escrito a mano en python, hace uso de fastapi y sqlmodel
+- La version de python y las dependencias estan gestionadas por uv es decir que se requiere tener instalado uv en el servidor
+- Y al ejecutar el comando uv sync en el folder de este proyecto, la version de python usada por las dependencias del proyecto juntos a estas, seran descargadas y un entorno virtual sera creado para trabajar de manera local
 
-## Tech stack
+## Como iniciar el backend
 
-- uv
-- python
-- fastapi
-
-## How to run
-
-```
+1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2
+2. Tras esto se debera asegurar que uv este instalado, si no es asi, se deberan seguir los pasos de este link https://docs.astral.sh/uv/
+3. Al asegurarse que uv esta instalado desde la terminal en el mismo directorio del repositorio clonado se debera correr para descargar las dependencias
+```bash
 uv sync
+```
+4. Y para ejecutar el programa se debera correr el siguiente comando
+```bash
 uv run fastapi dev
 ```
