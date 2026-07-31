@@ -7,17 +7,36 @@
 - La version de python y las dependencias estan gestionadas por uv es decir que se requiere tener instalado uv en el servidor
 - Y al ejecutar el comando uv sync en el folder de este proyecto, la version de python usada por las dependencias del proyecto juntos a estas, seran descargadas y un entorno virtual sera creado para trabajar de manera local
 
+## Tech stack
+
+- uv para gestionar version de python y paquetes
+- python como lenguaje de programacion debido a su facilidad de uso
+- fastapi como servidor tambien debido a su facilidad de uso y rendimiento
+- sqlmodel por ser un proyecto mantenido por el quipo de fastapi y ser un wrapper alrededor de sqlalchemy
+- docker como runtime de contenedores
+- dockerfiles para generar la imagen del servidor
+- docker compose para el depliegue del contenedor
+
 ## Como iniciar el backend
 
-- Para facilitar el proceso de levantar y mantener el backend hay dos maneras de utilizarlo, la mas sencilla y recomendada es levantar todo con docker compose y la otra opcion es correr los comandos a mano
+- Para levantar el backend hay dos maneras de utilizarlo, la mas sencilla y recomendada es levantar todo con docker compose y la otra opcion es correr los comandos a mano
 
 ### Usando docker compose
 
 1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
 2. Desde la terminal se ingresara a ese directorio y se debera ejecutara el comando
+
 ```bash
 docker compose up --build -d
 ```
+
+o
+
+```
+docker compose up --build
+```
+
+- Esta version se puede apagar con docker compose stop, o ctrl + c si se corrio el comando sin -d
 
 ### De manera tradicional
 
@@ -31,3 +50,5 @@ uv sync
 ```bash
 uv run fastapi dev
 ```
+
+- Esta version se puede apagar presionando ctrl + c en
