@@ -1,0 +1,11 @@
+services:
+  server:
+    build: .
+    container_name: ciiccte-server
+    command: uv sync && uv run fastapi dev
+    networks:
+      - db
+networks:
+  db:
+    name: db-net
+    external: true

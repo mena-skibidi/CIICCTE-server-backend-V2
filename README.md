@@ -9,13 +9,23 @@
 
 ## Como iniciar el backend
 
-1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2
+### Usando docker
+
+1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
+2. Desde la terminal se ingresara a ese directorio y se debera ejecutara el comando
+```bash
+docker compose up -d
+```
+
+### De manera tradicional
+
+1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
 2. Tras esto se debera asegurar que uv este instalado, si no es asi, se deberan seguir los pasos de este link https://docs.astral.sh/uv/
-3. Al asegurarse que uv esta instalado desde la terminal en el mismo directorio del repositorio clonado se debera correr para descargar las dependencias
+3. Al asegurarse que uv esta instalado, en el directorio del repositorio clonado se debera correr el siguiente comando
 ```bash
 uv sync
 ```
-4. Y para ejecutar el programa se debera correr el siguiente comando
+4. Y para ejecutar el programa se debera correr esto
 ```bash
 uv run fastapi dev
 ```

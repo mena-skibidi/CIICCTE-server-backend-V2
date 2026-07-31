@@ -7,11 +7,17 @@ async def get_root():
     return {"test"}
 
 
-# Db connection
- 
-# Login Logic
 
-# Create task (Dockerfile generation)
 
-# Run task (Dockerfile execution and attaching to the container logs or continously streaming log files to the frontend)
+'''
+TODO
+
+- Meter el proyecto en docker compose
+- Modelar tablas y relaciones
+- Conexion a la db
+- Hacer la logica del login
+
+'''
+
+
 
