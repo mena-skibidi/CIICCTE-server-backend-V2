@@ -9,6 +9,8 @@ Software que funge como servidor para gestionar la abstraccion entre el frontend
 
 ## Tech stack
 
+Por motivos de documentacion, este es el stack de tecnologias usado para el desarrollo de este repo
+
 - uv para gestionar version de python y paquetes
 - python como lenguaje de programacion debido a su facilidad de uso
 - fastapi como servidor tambien debido a su facilidad de uso y rendimiento
