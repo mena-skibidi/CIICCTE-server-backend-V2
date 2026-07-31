@@ -10,7 +10,6 @@ async def get_root():
 '''
 TODO
 
-- Meter el proyecto en docker compose
 - Modelar tablas y relaciones
 - Conexion a la db
 - Hacer la logica del login
