@@ -2,7 +2,7 @@ services:
   server:
     build: .
     container_name: ciiccte-server
-    command: uv sync && uv run fastapi dev
+    command: uv run fastapi dev
     networks:
       - db
 networks:

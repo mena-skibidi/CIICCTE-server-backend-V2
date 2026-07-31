@@ -14,7 +14,7 @@
 1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
 2. Desde la terminal se ingresara a ese directorio y se debera ejecutara el comando
 ```bash
-docker compose up -d
+docker compose up --build -d
 ```
 
 ### De manera tradicional
