@@ -2,7 +2,9 @@ services:
   server:
     build: .
     container_name: ciiccte-server
-    command: uv run fastapi dev
+    command: uv run fastapi dev main.py --host 0.0.0.0   
+    ports:
+      - "8000:8000"
     networks:
       - db
 networks:
