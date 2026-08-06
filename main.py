@@ -37,13 +37,3 @@ async def get_root():
 @server.post("/roles")
 async def create_role():
     return
-
-
-"""
-TODO
-
-x Modelar tablas y relaciones
-o Conexion a la db
-x Hacer la logica del login
-
-"""
