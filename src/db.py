@@ -1,7 +1,4 @@
-from fastapi import FastAPI
-from sqlmodel import create_engine, Field, SQLModel
-
-server = FastAPI()
+from sqlmodel import Field, Session, SQLModel, create_engine, select
 
 
 class roles(SQLModel, table=True):
@@ -26,14 +23,16 @@ engine = create_engine("postgresql://dbuser:labtest321@db:5432/labdb", echo=True
 
 
 def create_tables():
-    SQLModel.metadata.create_all(engine)
+    SQLModel.metadata.create_all(engine, checkfirst=True)
 
-
-@server.get("/")
-async def get_root():
-    return "test"
-
-
-@server.post("/roles")
-async def create_role():
-    return
+def create_admin_role():
+    with Session(engine) as session:
+        exists_statement = select(roles).where(roles.id == 0)
+        exists_check = session.exec(exists_statement).first()
+        if exists_check == True:
+            print("El rol de admin ya existe, skippeando paso")
+        else:
+            print("El rol de admin no existe, creandolo")
+            admin_role = roles(0, "admin")
+            session.add(admin_role, )
+            session.commit()
