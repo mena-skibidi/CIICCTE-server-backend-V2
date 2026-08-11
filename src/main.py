@@ -1,12 +1,13 @@
 from fastapi import FastAPI
-from db import create_admin_role, create_tables
+
+from db import create_base_roles, create_tables
 
 server = FastAPI()
 
 @server.on_event("startup")
 def on_server_start_setup():
     create_tables()
-    create_admin_role()
+    create_base_roles()
 
 
 @server.get("/")
