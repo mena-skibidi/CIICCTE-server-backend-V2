@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-
 from db import create_admin_role, create_tables
 
 server = FastAPI()

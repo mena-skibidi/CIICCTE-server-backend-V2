@@ -51,7 +51,7 @@ uv sync
 ```
 4. Y para ejecutar el programa se debera correr esto
 ```bash
-uv run fastapi dev
+uv run fastapi dev src/main.py --host 0.0.0.0   
 ```
 
 Esta version se puede apagar mediante ctrl + c o matando el proceso en algun gestor de procesos
