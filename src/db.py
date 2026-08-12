@@ -1,4 +1,4 @@
-from sqlmodel import Field, Session, SQLModel, create_engine, select
+from sqlmodel import Field, Session, SQLModel, create_engine, select, Relationship
 
 
 class roles(SQLModel, table=True):
@@ -46,3 +46,6 @@ def create_base_roles():
             usuario_role = roles(nombre_rol="usuario")
             session.add(usuario_role)
             session.commit()
+
+def create_cuenta():
+    with Session as session:
