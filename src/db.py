@@ -43,7 +43,7 @@ def db_setup():
     with Session(engine) as session:
         admin_role_statement = select(users).where(users.username == "admin")
         admin_role_statement_check = session.exec(admin_role_statement).first()
-        if admin_role_statement_check:
+        if not admin_role_statement_check:
             create_user("admin", "admin", "pwd123", 1)
 
 # db operations
