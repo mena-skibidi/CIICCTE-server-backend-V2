@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from db import db_setup, create_user
 from pydantic import BaseModel
+
+from db import create_user, db_setup
 
 server = FastAPI()
 
