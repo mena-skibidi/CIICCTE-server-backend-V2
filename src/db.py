@@ -1,4 +1,4 @@
-from sqlmodel import Field, Session, SQLModel, create_engine, select, Relationship
+from sqlmodel import Field, Session, SQLModel, create_engine, select
 
 # Models
 
@@ -12,7 +12,7 @@ class users(SQLModel, table=True):
     username: str
     nombre_completo: str
     password_encriptada: str
-    roles_id: int = Field(default=None, foreign_key=roles.id)
+    roles_id: int = Field(default=None, foreign_key="roles.id")
 
 
 engine = create_engine("postgresql://dbuser:labtest321@db:5432/labdb", echo=True)

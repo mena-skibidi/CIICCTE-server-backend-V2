@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-
-from db import db_setup
+from db import db_setup, create_user
+from pydantic import BaseModel
 
 server = FastAPI()
 
@@ -14,6 +14,12 @@ async def get_root():
     return "test"
 
 
-@server.post("/roles")
-def create_role():
-    return
+class create_user_datamodel(BaseModel):
+    username: str
+    nombre_completo: str | None = None
+    password: str
+    rol: int
+
+@server.post("/users")
+def create_role(data: create_user_datamodel):
+    create_user(data.username, data.nombre_completo, data.password, data.rol)
