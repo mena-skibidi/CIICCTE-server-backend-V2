@@ -1,7 +1,5 @@
 from sqlmodel import Field, Session, SQLModel, create_engine, select
 
-from datamodels import update_user_datamodel
-
 # Models
 
 class roles(SQLModel, table=True):
