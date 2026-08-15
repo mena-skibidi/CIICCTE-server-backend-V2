@@ -19,7 +19,8 @@ Por motivos de documentacion, este es el stack de tecnologias usado para el desa
 - docker como runtime de contenedores
 - dockerfiles para generar la imagen del servidor
 - docker compose para el depliegue del contenedor
-- ruff para el formato del codigo
+- ruff para el formato y linting
+- bruno para probar los endpoints
 
 ## Como iniciar el backend
 
