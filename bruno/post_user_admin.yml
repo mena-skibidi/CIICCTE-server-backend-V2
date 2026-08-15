@@ -1,0 +1,24 @@
+info:
+  name: post_user_admin
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8000/users
+  body:
+    type: json
+    data: |-
+      {
+        "username": "skibidi",
+        "nombre_completo": "Adam M",
+        "password": "1234",
+        "rol" : 1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

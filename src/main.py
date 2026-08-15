@@ -9,14 +9,9 @@ server = FastAPI()
 def on_server_start_setup():
     db_setup()
 
-
-@server.get("/")
-async def get_root():
-    return "test"
-
 @server.post("/users")
 def create_user(data: create_user_datamodel):
-    create_user_db(data.username, data.nombre_completo, data.password, "activa" ,data.rol)
+    create_user_db(data.username, data.nombre_completo, data.password ,data.rol)
 
 @server.delete("/users")
 def delete_user(username:str):

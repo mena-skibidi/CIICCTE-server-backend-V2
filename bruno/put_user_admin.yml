@@ -1,0 +1,23 @@
+info:
+  name: put_user_admin
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: http://localhost:8000/users
+  body:
+    type: json
+    data: |-
+      {
+        "username": "skibidi",
+        "nombre_completo": "Adam",
+        "password": "dasdas32"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
