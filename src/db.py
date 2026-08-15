@@ -1,5 +1,7 @@
 from sqlmodel import Field, Session, SQLModel, create_engine, select
 
+from datamodels import update_user_datamodel
+
 # Models
 
 class roles(SQLModel, table=True):
@@ -45,18 +47,19 @@ def db_setup():
         admin_role_statement = select(users).where(users.username == "admin")
         admin_role_statement_check = session.exec(admin_role_statement).first()
         if not admin_role_statement_check:
-            create_user("admin", "admin", "pwd123", 1)
+            create_user_db("admin", "admin", "pwd123", "activa", 1)
 
 # db operations
 
-def create_user(username: str, nombre_completo: str, password_sin_hashear: str, rol: int):
+def create_user_db(username: str, nombre_completo: str, password_sin_hashear: str, account_status: str, rol: int):
     with Session(engine) as session:
-        clave_privada = password_sin_hashear #Tengo que llamar una funcion que genere la llave privada de la password
+        # En produccion las contrasena se deben almacenar encriptadas, por el momento se almacenan en texto plano
+        clave_privada = password_sin_hashear
         new_user = users(username=username, nombre_completo=nombre_completo, password_encriptada=clave_privada, roles_id=rol)
         session.add(new_user)
         session.commit()
 
-def delete_user(username:str):
+def delete_user_db(username:str):
     with Session(engine) as session:
         # Por motivos de seguridad lo mejor seria nunca borrar cuentas solo desactivarlas
         delete_select_statement = select(users).where(users.username == username)
@@ -64,4 +67,13 @@ def delete_user(username:str):
         if user and user.account_status != "desactivada":
             user.account_status = "desactivada"
 
-        
+def update_user_db(username:str, data: update_user_datamodel):
+    with Session(engine) as session:
+        statement = select(users).where(users.username == username)
+        user = session.exec(statement).first()
+        if user:
+            for key,value in data.items():
+                setattr(user, key, value)
+            session.add(user)
+            session.commit()
+            session.refresh(user)
