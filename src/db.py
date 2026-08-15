@@ -12,7 +12,8 @@ class users(SQLModel, table=True):
     username: str = Field(unique=True)
     nombre_completo: str
     password_encriptada: str
-    roles_id: int = Field(default=None, foreign_key="roles.id")
+    account_status: str  # A nivel de backend los valores posibles seran "activa", "desactivada"
+    roles_id: int = Field(default=None, foreign_key="roles.id") # A nivel de backend los valores son 1 y 2, 1 para admin y 2 para user
 
 
 engine = create_engine("postgresql://dbuser:labtest321@db:5432/labdb", echo=True)
@@ -54,4 +55,13 @@ def create_user(username: str, nombre_completo: str, password_sin_hashear: str, 
         new_user = users(username=username, nombre_completo=nombre_completo, password_encriptada=clave_privada, roles_id=rol)
         session.add(new_user)
         session.commit()
-        print(f"Usuario {new_user.username}#{new_user.id} fue creado con el rol {new_user.roles_id}")
+
+def delete_user(username:str):
+    with Session(engine) as session:
+        # Por motivos de seguridad lo mejor seria nunca borrar cuentas solo desactivarlas
+        delete_select_statement = select(users).where(users.username == username)
+        user = session.exec(delete_select_statement).first()
+        if user and user.account_status != "desactivada":
+            user.account_status = "desactivada"
+
+        
