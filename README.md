@@ -24,7 +24,11 @@ Por motivos de documentacion, este es el stack de tecnologias usado para el desa
 
 ## Como iniciar el backend
 
-Para levantar el backend hay dos maneras de utilizarlo, la mas sencilla y recomendada es levantar todo con docker compose y la otra opcion es correr los comandos a mano
+Antes de correrlo es importante asegurarse que la db ya esta configurada, consultar https://github.com/mena-skibidi/CIICCTE-server-DB
+Al asegurarse que la db esta corriendo se puede levantar el backend de dos maneras:
+
+- la mas sencilla y recomendada es levantar todo con docker compose
+- la otra opcion es correr los comandos a mano
 
 ### Usando docker compose
 
@@ -53,7 +57,7 @@ uv sync
 ```
 4. Y para ejecutar el programa se debera correr esto
 ```bash
-uv run fastapi dev src/main.py --host 0.0.0.0   
+uv run fastapi dev src/main.py --host 0.0.0.0
 ```
 
 Esta version se puede apagar mediante ctrl + c o matando el proceso en algun gestor de procesos
