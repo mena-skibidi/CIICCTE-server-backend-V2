@@ -1,7 +1,13 @@
 from fastapi import FastAPI
 
-from datamodels import create_user_datamodel, update_user_datamodel
-from db import create_user_db, db_setup, delete_user_db, update_user_db
+from datamodels import create_user_datamodel, login_data, update_user_datamodel
+from db import (
+    create_user_db,
+    db_setup,
+    delete_user_db,
+    login_process_db,
+    update_user_db,
+)
 
 server = FastAPI()
 
@@ -25,3 +31,8 @@ def delete_user(username: str):
 def update_user(data: update_user_datamodel):
     filtered_data = data.model_dump(exclude_unset=True)
     update_user_db(data.username, filtered_data)
+
+
+@server.post("/login")
+def login_process(data: login_data):
+    login_process_db(data.username, data.password)

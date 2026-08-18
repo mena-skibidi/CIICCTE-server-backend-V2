@@ -13,3 +13,8 @@ class update_user_datamodel(BaseModel):
     nombre_completo: str | None = None
     password: str | None = None
     rol: int | None = None
+
+
+class login_data(BaseModel):
+    username: str
+    password: str

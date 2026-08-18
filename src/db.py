@@ -96,3 +96,15 @@ def update_user_db(username: str, data: dict):
             session.add(user)
             session.commit()
             session.refresh(user)
+
+
+def login_process_db(username: str, password: str):
+    with Session(engine) as session:
+        statement = select(users).where(
+            users.username == username and users.password_encriptada == password
+        )
+        user = session.exec(statement).first()
+        if user:
+            print("Usuario valido")
+        else:
+            print("Usuario invalido")
