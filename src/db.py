@@ -104,6 +104,7 @@ def login_process_db(username: str, password: str):
             users.username == username and users.password_encriptada == password
         )
         user = session.exec(statement).first()
+        # TODO seguir los docs de fastapi para lidiar con la autenticacion https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/#recap
         if user:
             print("Usuario valido")
         else:

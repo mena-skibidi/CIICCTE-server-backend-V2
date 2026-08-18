@@ -25,39 +25,21 @@ Por motivos de documentacion, este es el stack de tecnologias usado para el desa
 ## Como iniciar el backend
 
 Antes de correrlo es importante asegurarse que la db ya esta configurada, consultar https://github.com/mena-skibidi/CIICCTE-server-DB
-Al asegurarse que la db esta corriendo se puede levantar el backend de dos maneras:
 
-- la mas sencilla y recomendada es levantar todo con docker compose
-- la otra opcion es correr los comandos a mano
+1. Se debera clonar el repositorio en el servidor con:
 
-### Usando docker compose
+```bash
+git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2
+```
 
-1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
 2. Desde la terminal se ingresara a ese directorio y se debera ejecutara el comando
 
 ```bash
 docker compose up --build -d
 ```
 
-o
+Si el programa se ejecuto en modo detached (con la -d) se debera navegar al directorio y en la terminal correr lo siguiente para detener el proceso
 
-```
-docker compose up --build
-```
-
-Esta version se puede apagar con docker compose stop, o ctrl + c si se corrio el comando sin -d
-
-### De manera tradicional
-
-1. Se debera clonar el repositorio en el servidor con git clone https://github.com/mena-skibidi/CIICCTE-server-backend-V2 y se debe descomprimir
-2. Tras esto se debera asegurar que uv este instalado, si no es asi, se deberan seguir los pasos de este link https://docs.astral.sh/uv/
-3. Al asegurarse que uv esta instalado, en el directorio del repositorio clonado se debera correr el siguiente comando
 ```bash
-uv sync
+docker compose down
 ```
-4. Y para ejecutar el programa se debera correr esto
-```bash
-uv run fastapi dev src/main.py --host 0.0.0.0
-```
-
-Esta version se puede apagar mediante ctrl + c o matando el proceso en algun gestor de procesos
